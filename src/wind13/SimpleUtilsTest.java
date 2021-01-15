@@ -5,8 +5,15 @@ import java.util.List;
 
 public class SimpleUtilsTest {
     private List<TestCase> methods = new ArrayList<>();
+    public static final String FAILED_ASSERT_TRUE = "Expect true but got false.";
 
     public SimpleUtilsTest() {
+    }
+
+    public static void assertTrue(boolean b) {
+        if(!b) {
+            throw new RuntimeException(FAILED_ASSERT_TRUE);
+        }
     }
 
     public void registerMethod(String name, Runnable method) {
@@ -24,12 +31,11 @@ public class SimpleUtilsTest {
     public void testAddSuccess() {
         SimpleUtils simpleUtils = new SimpleUtils();
         int r = simpleUtils.add(3, 5);
-//        if(r == 8) {
-//            this.methods.find
-//        }
-        return;
+        assertTrue(r == 8);
     }
     public void testAddFailed() {
-        return;
+        SimpleUtils simpleUtils = new SimpleUtils();
+        int r = simpleUtils.add(7, 8);
+        assertTrue(r == 9);
     }
 }
