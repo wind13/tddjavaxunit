@@ -31,7 +31,6 @@ public class TestCase {
             this.result = String.format(FAILED, e.getLocalizedMessage());
         }
         return this.isSuccess;
-        // How to know the run result?
     }
 
     public String getResult() {
